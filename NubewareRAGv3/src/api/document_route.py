@@ -1,9 +1,11 @@
 from flask import Blueprint, jsonify, request
-from service.service_upload import upload_document
+from service.service_upload import upload_document, list_documents
 
 
 document_bp = Blueprint("document", __name__)
 
+
+#Endpoint que recibe los documentos e inicializa el metodo de vectorizacion y alojamiento en Chromas
 @document_bp.route("/documents/upload", methods=["POST"])
 def subir():
     if "file" not in request.files:
@@ -11,5 +13,14 @@ def subir():
 
     file = request.files["file"]
 
-    response, status_code = upload_document(file)
+    response, status_code = upload_document()
     return jsonify(response), status_code
+
+
+#ENDPOINT PARA LISTAR LOS DOCUMENTOS CON CHROMAS ALOJADOS EN LA BASE DE DATOS 
+#FUNCIONAL PARA LA ELECCION DE CHROMAS A CONSULTAR POR EL RAG
+
+@document_bp.route("/documents", methods=["GET"])
+def listar():
+    response, status_code = list_documents()
+    return jsonify(response), status_code    
