@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, request
-from service.service_upload import upload_document, list_documents
+from service.service_upload import upload_document, list_documents, delete_document
 
 
 document_bp = Blueprint("document", __name__)
@@ -24,3 +24,9 @@ def subir():
 def listar():
     response, status_code = list_documents()
     return jsonify(response), status_code    
+
+# document_route.py - agregar este endpoint
+@document_bp.route("/documents/<document_id>", methods=["DELETE"])
+def eliminar(document_id):
+    response, status_code = delete_document(document_id)
+    return jsonify(response), status_code

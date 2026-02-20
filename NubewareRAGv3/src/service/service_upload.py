@@ -158,3 +158,36 @@ def upload_document():
         "file_hash": file_hash,
         "chunks_processed": processed
     }), 201
+
+# document_service.py - agregar este método
+def delete_document(document_id):
+    conn = get_db_connection()
+    cursor = conn.cursor(dictionary=True)
+
+    # Verificar que existe en MySQL
+    cursor.execute("SELECT id, filename FROM documents WHERE id = %s", (document_id,))
+    doc = cursor.fetchone()
+
+    if not doc:
+        cursor.close()
+        conn.close()
+        return {"error": "Document not found"}, 404
+
+    # Eliminar chunks de Chroma
+    client = get_chroma_client()
+    collection = client.get_or_create_collection("documents")
+
+    existing_chunks = collection.get(where={"document_id": document_id})
+    if existing_chunks["ids"]:
+        collection.delete(ids=existing_chunks["ids"])
+
+    # Eliminar de MySQL
+    cursor.execute("DELETE FROM documents WHERE id = %s", (document_id,))
+    conn.commit()
+    cursor.close()
+    conn.close()
+
+    return {
+        "message": f"Document '{doc['filename']}' deleted successfully",
+        "document_id": document_id
+    }, 200
