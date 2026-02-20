@@ -1,0 +1,32 @@
+¿Qué es una ecuación de primer grado?.
+Una ecuación de primer grado es una igualdad que contiene una incógnita x, la cual no sabemos su valor. Para resolver la ecuación de primer grado, debemos calcular qué valor toma la incógnita x, para que la igualdad se cumpla.
+
+El valor a izquierda y derecha del igual tiene que ser el mismo. Lo que ocurre es que, en un principio, hay un valor “X” que desconocemos. En este caso, se llaman de primer grado porque es como si la “X” llevase de exponente un 1. Si fuera “X” al cuadrado sería una ecuación de segundo grado.
+
+¿Cómo se resuelves las ecuaciones de primer grado?
+1. Lo primero hay que agrupar los números de forma que queden a un lado los números que tienen la incógnita (“X”) y al otro los que no la tienen.
+
+Cuando pasamos una cifra de un lado al otro, si está restando pasa al otro lado sumando y viceversa. Si está multiplicando, pasa como cifra dividida. Y si divide, pasa a ser multiplicada.
+
+Por ejemplo:
+
+5 X + 2 = X + 10
+
+5 X - X = 10 - 2
+
+2. Ahora tenemos que resolver la operación de cada lado de forma separada:
+
+5 X - X = 10 - 2
+
+4 X = 8
+
+3. Por último, para resolver ecuaciones de primer grado, tenemos que dividir el resultado del lado sin incógnita por el número que tiene la incógnita. En nuestro ejemplo:
+
+4 X = 8
+
+X = 8/4
+
+X = 2
+
+¿En qué orden hay que seguir las operaciones para resolver las ecuaciones?
+Primero hay que quitar los paréntesis, luego multiplicaciones y divisiones, trasposición de términos, agrupar términos, despejar la incógnita y simplificar el resultado.
